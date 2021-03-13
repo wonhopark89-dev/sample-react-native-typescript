@@ -12,9 +12,12 @@ const RootScreen = ({navigation}: Props) => {
     <View style={{flex: 1, backgroundColor: 'pink', justifyContent: 'center'}}>
       <TouchableOpacity onPress={() => navigation.navigate('UberEatsRootScreen')}>
         <View style={{padding: 20}}>
-          <>
-            <Text>Test </Text>
-          </>
+          <Text>Test </Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('PanGestureScreen')}>
+        <View style={{padding: 20}}>
+          <Text>PanGesture</Text>
         </View>
       </TouchableOpacity>
     </View>

@@ -3,10 +3,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 import RootScreen from '~/RootScreen';
 // UberEatsSwipe
 import UberEatsSwipe from '~/UberEatsSwipe';
-
+// Tutoral
+import {default as PanGestureScreen} from '~/PanGesture';
 export type RootStackParamList = {
   RootScreen: undefined;
   UberEatsRootScreen: undefined;
+
+  // Tutorial
+  PanGestureScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -15,6 +19,7 @@ const RootNavigator = () => {
     <RootStack.Navigator initialRouteName={'RootScreen'} headerMode={'none'}>
       <RootStack.Screen name={'RootScreen'} component={RootScreen} />
       <RootStack.Screen name={'UberEatsRootScreen'} component={UberEatsSwipe} />
+      <RootStack.Screen name={'PanGestureScreen'} component={PanGestureScreen} />
     </RootStack.Navigator>
   );
 };
