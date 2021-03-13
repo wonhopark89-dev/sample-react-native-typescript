@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Card, Cards} from '~/components';
+import {Card, CARD_HEIGHT, CARD_WIDTH, Cards} from '~/components';
 import {PanGestureHandler, PanGestureHandlerGestureEvent} from 'react-native-gesture-handler';
-import Animated, {useAnimatedGestureHandler, useAnimatedStyle, useSharedValue} from 'react-native-reanimated';
+import Animated, {useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDecay} from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
   container: {flex: 1}
@@ -19,13 +19,24 @@ const Gesture = ({width, height}: GestureProps) => {
   const translateY = useSharedValue(0);
   const onGestureEvent = useAnimatedGestureHandler<PanGestureHandlerGestureEvent, {offsetX: number; offsetY: number}>({
     // CALLBACK 목록
-    onStart: (event, ctx) => {
+    onStart: (_, ctx) => {
       ctx.offsetX = translateX.value;
       ctx.offsetY = translateY.value;
     },
     onActive: (event, ctx) => {
       translateX.value = ctx.offsetX + event.translationX;
       translateY.value = ctx.offsetY + event.translationY;
+    },
+    // 움직이는 타겟 크기가 화면 밖으로 나가지 않도록
+    onEnd: (event, _) => {
+      translateX.value = withDecay({
+        velocity: event.velocityX,
+        clamp: [0, width - CARD_WIDTH]
+      });
+      translateY.value = withDecay({
+        velocity: event.velocityY,
+        clamp: [0, height - CARD_HEIGHT]
+      });
     }
   });
 
