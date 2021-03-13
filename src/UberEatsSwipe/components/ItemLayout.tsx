@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const currency = new Intl.NumberFormat('ch', {
-  style: 'currency',
-  currency: 'CHF'
-});
+// const currency = new Intl.NumberFormat('ch', {
+//   style: 'currency',
+//   currency: 'CHF'
+// });
 
 export const HEIGHT = 64;
 const styles = StyleSheet.create({
@@ -62,8 +62,9 @@ const ItemLayout = ({item: {price, quantity, title}}: ItemLayoutProps) => {
           <Text>{quantity}</Text>
         </View>
         <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
-      <Text style={styles.price}>{currency.format(price)}</Text>
+      {/*<Text style={styles.price}>{currency.format(price)}</Text>*/}
     </View>
   );
 };
