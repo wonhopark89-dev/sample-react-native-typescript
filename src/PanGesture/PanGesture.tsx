@@ -3,6 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {Card, CARD_HEIGHT, CARD_WIDTH, Cards} from '~/components';
 import {PanGestureHandler, PanGestureHandlerGestureEvent} from 'react-native-gesture-handler';
 import Animated, {useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDecay} from 'react-native-reanimated';
+import {clamp} from 'react-native-redash';
 
 const styles = StyleSheet.create({
   container: {flex: 1}
@@ -15,6 +16,9 @@ interface GestureProps {
 
 const Gesture = ({width, height}: GestureProps) => {
   // console.log({width, height});
+  const boundX = width - CARD_WIDTH;
+  const boundY = height - CARD_HEIGHT;
+
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
   const onGestureEvent = useAnimatedGestureHandler<PanGestureHandlerGestureEvent, {offsetX: number; offsetY: number}>({
@@ -24,18 +28,20 @@ const Gesture = ({width, height}: GestureProps) => {
       ctx.offsetY = translateY.value;
     },
     onActive: (event, ctx) => {
-      translateX.value = ctx.offsetX + event.translationX;
-      translateY.value = ctx.offsetY + event.translationY;
+      // translateX.value = ctx.offsetX + event.translationX; // 움직일땐 화면 밖으로 나갈 수 있음
+      // 아예 화면 밖으로 안나가도록 설
+      translateX.value = clamp(ctx.offsetX + event.translationX, 0, boundX);
+      translateY.value = clamp(ctx.offsetY + event.translationY, 0, boundY);
     },
-    // 움직이는 타겟 크기가 화면 밖으로 나가지 않도록
+    // 움직이는 타겟 크기가 화면 밖으로 나갔을때 되돌아 오도록
     onEnd: (event, _) => {
       translateX.value = withDecay({
         velocity: event.velocityX,
-        clamp: [0, width - CARD_WIDTH]
+        clamp: [0, boundX]
       });
       translateY.value = withDecay({
         velocity: event.velocityY,
-        clamp: [0, height - CARD_HEIGHT]
+        clamp: [0, boundY]
       });
     }
   });
