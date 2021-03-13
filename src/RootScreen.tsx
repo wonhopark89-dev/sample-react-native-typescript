@@ -10,7 +10,7 @@ interface Props {
 const RootScreen = ({navigation}: Props) => {
   return (
     <View style={{flex: 1, backgroundColor: 'pink', justifyContent: 'center'}}>
-      <TouchableOpacity onPress={() => console.log('test')}>
+      <TouchableOpacity onPress={() => navigation.navigate('UberEatsRootScreen')}>
         <View style={{padding: 20}}>
           <>
             <Text>Test </Text>
