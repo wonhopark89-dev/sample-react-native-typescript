@@ -6,6 +6,7 @@ import UberEatsSwipe from '~/UberEatsSwipe';
 // Tutoral
 import {default as PanGestureScreen} from '~/PanGesture';
 import {default as TransitionsScreen} from '~/Transitions';
+import {default as AnimationsScreen} from '~/Animations';
 
 export type RootStackParamList = {
   RootScreen: undefined;
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   // Tutorial
   PanGestureScreen: undefined;
   TransitionsScreen: undefined;
+  AnimationsScreen: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -24,6 +26,7 @@ const RootNavigator = () => {
       <RootStack.Screen name={'UberEatsRootScreen'} component={UberEatsSwipe} />
       <RootStack.Screen name={'PanGestureScreen'} component={PanGestureScreen} />
       <RootStack.Screen name={'TransitionsScreen'} component={TransitionsScreen} />
+      <RootStack.Screen name={'AnimationsScreen'} component={AnimationsScreen} />
     </RootStack.Navigator>
   );
 };

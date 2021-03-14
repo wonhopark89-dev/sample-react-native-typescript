@@ -25,6 +25,11 @@ const RootScreen = ({navigation}: Props) => {
           <Text>Transitions</Text>
         </View>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('AnimationsScreen')}>
+        <View style={{padding: 20}}>
+          <Text>Animations</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
