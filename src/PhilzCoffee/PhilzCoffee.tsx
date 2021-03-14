@@ -8,7 +8,7 @@ import Cards from './components/Cards';
 import Animated, {interpolateColor, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue} from 'react-native-reanimated';
 const {width} = Dimensions.get('window');
 
-const snapToOffsets = [0, CARD_HEIGHT];
+const snapToOffsets = [0, CARD_HEIGHT]; // 세로 스크롤 기준 스크롤 시, 상단 오프셋 넘어가는 크기
 const styles = StyleSheet.create({
   slider: {height: CARD_HEIGHT}
 });
