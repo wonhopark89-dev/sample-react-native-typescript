@@ -53,10 +53,13 @@ interface ItemProps {
   index: number;
   y: Animated.SharedValue<number>;
   item: Item;
+  type: 'scroll' | 'pan';
 }
 
-const Item = ({y, index, item: {title, subtitle, picture}}: ItemProps) => {
+const Item = ({y, index, type, item: {title, subtitle, picture}}: ItemProps) => {
   const inputRange = [(index - 1) * MAX_HEIGHT, index * MAX_HEIGHT];
+
+  // about scroll
   const container = useAnimatedStyle<ViewStyle>(() => ({
     height: interpolate(y.value, inputRange, [MIN_HEIGHT, MAX_HEIGHT], Extrapolate.CLAMP)
   }));
@@ -65,20 +68,48 @@ const Item = ({y, index, item: {title, subtitle, picture}}: ItemProps) => {
     opacity: interpolate(y.value, inputRange, [0, 1], Extrapolate.CLAMP)
   }));
 
+  // about pan
+  const container2 = useAnimatedStyle(() => ({
+    height: interpolate(-y.value, inputRange, [MIN_HEIGHT, MAX_HEIGHT], Extrapolate.CLAMP),
+    top: y.value
+  }));
+
+  const titleStyle2 = useAnimatedStyle(() => ({
+    opacity: interpolate(-y.value, inputRange, [0, 1], Extrapolate.CLAMP)
+  }));
+
   return (
-    <TouchableWithoutFeedback onPress={() => Alert.alert('Pressed!')}>
-      <Animated.View style={[styles.container, container]}>
-        <Image source={picture} style={[styles.picture]} />
-        <View style={styles.titleContainer}>
-          <Text style={styles.subtitle}>{subtitle.toUpperCase()}</Text>
-          <Animated.View style={titleStyle}>
-            <View>
-              <Text style={styles.title}>{title.toUpperCase()}</Text>
+    <>
+      {type === 'scroll' ? (
+        <TouchableWithoutFeedback onPress={() => Alert.alert('Pressed!')}>
+          <Animated.View style={[styles.container, container]}>
+            <Image source={picture} style={[styles.picture]} />
+            <View style={styles.titleContainer}>
+              <Text style={styles.subtitle}>{subtitle.toUpperCase()}</Text>
+              <Animated.View style={titleStyle}>
+                <View>
+                  <Text style={styles.title}>{title.toUpperCase()}</Text>
+                </View>
+              </Animated.View>
             </View>
           </Animated.View>
-        </View>
-      </Animated.View>
-    </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      ) : (
+        <TouchableWithoutFeedback onPress={() => Alert.alert('Pressed!')}>
+          <Animated.View style={[styles.container, container2]}>
+            <Image source={picture} style={[styles.picture]} />
+            <View style={styles.titleContainer}>
+              <Text style={styles.subtitle}>{subtitle.toUpperCase()}</Text>
+              <Animated.View style={titleStyle2}>
+                <View>
+                  <Text style={styles.title}>{title.toUpperCase()}</Text>
+                </View>
+              </Animated.View>
+            </View>
+          </Animated.View>
+        </TouchableWithoutFeedback>
+      )}
+    </>
   );
 };
 

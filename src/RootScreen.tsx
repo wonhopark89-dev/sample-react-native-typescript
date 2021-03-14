@@ -1,20 +1,20 @@
 import * as React from 'react';
 import {TouchableOpacity, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
-import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {RootStackParamList} from '~/RootStackNavigator';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const styles = StyleSheet.create({
   title: {
     fontFamily: 'KaushanScript-Regular',
     fontSize: 24,
     textAlign: 'center',
-    paddingVertical: 10,
+    padding: 10,
     marginVertical: 10
   }
 });
 
 interface Props {
-  navigation: NativeStackNavigationProp<RootStackParamList>;
+  navigation: StackNavigationProp<RootStackParamList>;
 }
 
 interface MenuButtonProps {
@@ -38,7 +38,23 @@ const RootScreen = ({navigation}: Props) => {
         <MenuButton title={'PanGesture'} onPress={() => navigation.navigate('PanGestureScreen')} />
         <MenuButton title={'Transitions'} onPress={() => navigation.navigate('TransitionsScreen')} />
         <MenuButton title={'Animations'} onPress={() => navigation.navigate('AnimationsScreen')} />
-        <MenuButton title={'ChanelScroll'} onPress={() => navigation.navigate('ChanelScrollScreen')} />
+
+        <MenuButton
+          title={'Chanel Scroll  (Scroll)'}
+          onPress={() =>
+            navigation.navigate('ChanelScrollScreen', {
+              gesture: 'scroll'
+            })
+          }
+        />
+        <MenuButton
+          title={'Chanel Scroll  (Pan)'}
+          onPress={() =>
+            navigation.navigate('ChanelScrollScreen', {
+              gesture: 'pan'
+            })
+          }
+        />
       </ScrollView>
     </SafeAreaView>
   );

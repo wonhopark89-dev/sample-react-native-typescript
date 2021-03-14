@@ -3,16 +3,17 @@ import {createStackNavigator} from '@react-navigation/stack';
 import RootScreen from '~/RootScreen';
 // UberEatsSwipe
 import UberEatsSwipe from '~/UberEatsSwipe';
+// Chanel
+import {default as ChanelScreen} from '~/ChanelScrollAnimation';
 // Tutoral
 import {default as PanGestureScreen} from '~/PanGesture';
 import {default as TransitionsScreen} from '~/Transitions';
 import {default as AnimationsScreen} from '~/Animations';
-import {default as ChanelScreen} from '~/ChanelScrollAnimation';
 
 export type RootStackParamList = {
   RootScreen: undefined;
   UberEatsRootScreen: undefined;
-  ChanelScrollScreen: undefined;
+  ChanelScrollScreen: {gesture: string};
 
   // Tutorial
   PanGestureScreen: undefined;
