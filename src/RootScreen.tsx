@@ -38,23 +38,9 @@ const RootScreen = ({navigation}: Props) => {
         <MenuButton title={'PanGesture'} onPress={() => navigation.navigate('PanGestureScreen')} />
         <MenuButton title={'Transitions'} onPress={() => navigation.navigate('TransitionsScreen')} />
         <MenuButton title={'Animations'} onPress={() => navigation.navigate('AnimationsScreen')} />
-
-        <MenuButton
-          title={'Chanel Scroll  (Scroll)'}
-          onPress={() =>
-            navigation.navigate('ChanelScrollScreen', {
-              gesture: 'scroll'
-            })
-          }
-        />
-        <MenuButton
-          title={'Chanel Scroll  (Pan)'}
-          onPress={() =>
-            navigation.navigate('ChanelScrollScreen', {
-              gesture: 'pan'
-            })
-          }
-        />
+        <MenuButton title={'Chanel Scroll  (Scroll)'} onPress={() => navigation.navigate('ChanelScrollScreen', {gesture: 'scroll'})} />
+        <MenuButton title={'Chanel Scroll  (Pan)'} onPress={() => navigation.navigate('ChanelScrollScreen', {gesture: 'pan'})} />
+        <MenuButton title={'PhilzCoffe'} onPress={() => navigation.navigate('PhilzCoffeeScreen')} />
       </ScrollView>
     </SafeAreaView>
   );

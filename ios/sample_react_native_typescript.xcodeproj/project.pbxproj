@@ -21,6 +21,10 @@
 		962BDE1F7DBB97463450486E /* libPods-sample_react_native_typescript-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3DCF3F04D4D018F178E8EA4 /* libPods-sample_react_native_typescript-tvOS.a */; };
 		992AA9B9E8801DD2A4645906 /* libPods-sample_react_native_typescript-sample_react_native_typescriptTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7687A3FEA25B51786EC73759 /* libPods-sample_react_native_typescript-sample_react_native_typescriptTests.a */; };
 		F8CAF9823F7867A79B1C8F78 /* libPods-sample_react_native_typescript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A204B479E49B5E6B72B969 /* libPods-sample_react_native_typescript.a */; };
+		A9856D71DA3941B78092C3BA /* GothamRounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E677827224724311B618E812 /* GothamRounded-Bold.otf */; };
+		98DFBBF1A0DE42D69E058603 /* GothamRounded-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 35A04D555D834E6B99D21DA5 /* GothamRounded-Book.otf */; };
+		E68D5919727A478E9F3BA72B /* GothamRounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D4209BEAAD2473CA46698D7 /* GothamRounded-Light.otf */; };
+		62FBF1CDF71F4790AD293CD0 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A8F196D83ED94EF2B2A5C6DE /* GothamRounded-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F45AB4A8FE253401520E6AD5 /* Pods-sample_react_native_typescript-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sample_react_native_typescript-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-sample_react_native_typescript-tvOSTests/Pods-sample_react_native_typescript-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E677827224724311B618E812 /* GothamRounded-Bold.otf */ = {isa = PBXFileReference; name = "GothamRounded-Bold.otf"; path = "../assets/fonts/GothamRounded-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		35A04D555D834E6B99D21DA5 /* GothamRounded-Book.otf */ = {isa = PBXFileReference; name = "GothamRounded-Book.otf"; path = "../assets/fonts/GothamRounded-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0D4209BEAAD2473CA46698D7 /* GothamRounded-Light.otf */ = {isa = PBXFileReference; name = "GothamRounded-Light.otf"; path = "../assets/fonts/GothamRounded-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A8F196D83ED94EF2B2A5C6DE /* GothamRounded-Medium.otf */ = {isa = PBXFileReference; name = "GothamRounded-Medium.otf"; path = "../assets/fonts/GothamRounded-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				160ADD16D9714480A64CF802 /* KaushanScript-Regular.otf */,
+				E677827224724311B618E812 /* GothamRounded-Bold.otf */,
+				35A04D555D834E6B99D21DA5 /* GothamRounded-Book.otf */,
+				0D4209BEAAD2473CA46698D7 /* GothamRounded-Light.otf */,
+				A8F196D83ED94EF2B2A5C6DE /* GothamRounded-Medium.otf */,
 			);
 			name = Resources;
 			path = "";
@@ -355,6 +367,10 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				4107007260AF40B6990D6825 /* KaushanScript-Regular.otf in Resources */,
+				A9856D71DA3941B78092C3BA /* GothamRounded-Bold.otf in Resources */,
+				98DFBBF1A0DE42D69E058603 /* GothamRounded-Book.otf in Resources */,
+				E68D5919727A478E9F3BA72B /* GothamRounded-Light.otf in Resources */,
+				62FBF1CDF71F4790AD293CD0 /* GothamRounded-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

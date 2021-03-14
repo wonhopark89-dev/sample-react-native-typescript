@@ -5,6 +5,8 @@ import RootScreen from '~/RootScreen';
 import UberEatsSwipe from '~/UberEatsSwipe';
 // Chanel
 import {default as ChanelScreen} from '~/ChanelScrollAnimation';
+// Philze Coffe
+import {default as PhilzCoffeeScreen} from '~/PhilzCoffee';
 // Tutoral
 import {default as PanGestureScreen} from '~/PanGesture';
 import {default as TransitionsScreen} from '~/Transitions';
@@ -14,7 +16,7 @@ export type RootStackParamList = {
   RootScreen: undefined;
   UberEatsRootScreen: undefined;
   ChanelScrollScreen: {gesture: string};
-
+  PhilzCoffeeScreen: undefined;
   // Tutorial
   PanGestureScreen: undefined;
   TransitionsScreen: undefined;
@@ -31,6 +33,7 @@ const RootNavigator = () => {
       <RootStack.Screen name={'TransitionsScreen'} component={TransitionsScreen} />
       <RootStack.Screen name={'AnimationsScreen'} component={AnimationsScreen} />
       <RootStack.Screen name={'ChanelScrollScreen'} component={ChanelScreen} />
+      <RootStack.Screen name={'PhilzCoffeeScreen'} component={PhilzCoffeeScreen} />
     </RootStack.Navigator>
   );
 };
