@@ -1,36 +1,45 @@
 import * as React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {RootStackParamList} from '~/RootStackNavigator';
+
+const styles = StyleSheet.create({
+  title: {
+    fontFamily: 'KaushanScript-Regular',
+    fontSize: 24,
+    textAlign: 'center',
+    paddingVertical: 10,
+    marginVertical: 10
+  }
+});
 
 interface Props {
   navigation: NativeStackNavigationProp<RootStackParamList>;
 }
 
+interface MenuButtonProps {
+  title: string;
+  onPress: () => void;
+}
+
+const MenuButton = ({title, onPress}: MenuButtonProps) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
+
 const RootScreen = ({navigation}: Props) => {
   return (
-    <View style={{flex: 1, backgroundColor: 'pink', justifyContent: 'center'}}>
-      <TouchableOpacity onPress={() => navigation.navigate('UberEatsRootScreen')}>
-        <View style={{padding: 20}}>
-          <Text>Test </Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('PanGestureScreen')}>
-        <View style={{padding: 20}}>
-          <Text>PanGesture</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('TransitionsScreen')}>
-        <View style={{padding: 20}}>
-          <Text>Transitions</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('AnimationsScreen')}>
-        <View style={{padding: 20}}>
-          <Text>Animations</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white', justifyContent: 'center'}}>
+      <ScrollView showsVerticalScrollIndicator={false} scrollEventThrottle={16}>
+        <MenuButton title={'Tests'} onPress={() => navigation.navigate('UberEatsRootScreen')} />
+        <MenuButton title={'PanGesture'} onPress={() => navigation.navigate('PanGestureScreen')} />
+        <MenuButton title={'Transitions'} onPress={() => navigation.navigate('TransitionsScreen')} />
+        <MenuButton title={'Animations'} onPress={() => navigation.navigate('AnimationsScreen')} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
