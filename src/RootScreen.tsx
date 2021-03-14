@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {TouchableOpacity, View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
+import {TouchableOpacity, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {RootStackParamList} from '~/RootStackNavigator';
 

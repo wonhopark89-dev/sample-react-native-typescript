@@ -1,6 +1,7 @@
 import React from 'react';
-import {Image, StyleSheet, Dimensions, Alert, View, Text} from 'react-native';
+import {Alert, Dimensions, Image, StyleSheet, Text, View, ViewStyle} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import Animated, {Extrapolate, interpolate, useAnimatedStyle} from 'react-native-reanimated';
 
 const {width, height} = Dimensions.get('window');
 export const MIN_HEIGHT = 128;
@@ -50,23 +51,33 @@ export interface Item {
 
 interface ItemProps {
   index: number;
+  y: Animated.SharedValue<number>;
   item: Item;
 }
 
-const Item = ({item: {title, subtitle, picture}}: ItemProps) => {
+const Item = ({y, index, item: {title, subtitle, picture}}: ItemProps) => {
+  const inputRange = [(index - 1) * MAX_HEIGHT, index * MAX_HEIGHT];
+  const container = useAnimatedStyle<ViewStyle>(() => ({
+    height: interpolate(y.value, inputRange, [MIN_HEIGHT, MAX_HEIGHT], Extrapolate.CLAMP)
+  }));
+
+  const titleStyle = useAnimatedStyle<ViewStyle>(() => ({
+    opacity: interpolate(y.value, inputRange, [0, 1], Extrapolate.CLAMP)
+  }));
+
   return (
     <TouchableWithoutFeedback onPress={() => Alert.alert('Pressed!')}>
-      <View style={[styles.container]}>
+      <Animated.View style={[styles.container, container]}>
         <Image source={picture} style={[styles.picture]} />
         <View style={styles.titleContainer}>
           <Text style={styles.subtitle}>{subtitle.toUpperCase()}</Text>
-          <View style={styles.mainTitle}>
+          <Animated.View style={titleStyle}>
             <View>
               <Text style={styles.title}>{title.toUpperCase()}</Text>
             </View>
-          </View>
+          </Animated.View>
         </View>
-      </View>
+      </Animated.View>
     </TouchableWithoutFeedback>
   );
 };
