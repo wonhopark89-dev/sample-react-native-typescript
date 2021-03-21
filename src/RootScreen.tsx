@@ -41,6 +41,7 @@ const RootScreen = ({navigation}: Props) => {
         <MenuButton title={'Chanel Scroll  (Scroll)'} onPress={() => navigation.navigate('ChanelScrollScreen', {gesture: 'scroll'})} />
         <MenuButton title={'Chanel Scroll  (Pan)'} onPress={() => navigation.navigate('ChanelScrollScreen', {gesture: 'pan'})} />
         <MenuButton title={'PhilzCoffe'} onPress={() => navigation.navigate('PhilzCoffeeScreen')} />
+        <MenuButton title={'Animated Scroll'} onPress={() => navigation.navigate('AnimatedScrollScreen')} />
       </ScrollView>
     </SafeAreaView>
   );
