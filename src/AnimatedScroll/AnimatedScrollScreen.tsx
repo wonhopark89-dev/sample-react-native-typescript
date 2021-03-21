@@ -3,21 +3,8 @@
 // Background image: https://www.pexels.com/photo/pink-rose-closeup-photography-1231265/
 
 import * as React from 'react';
-import {
-  StatusBar,
-  FlatList,
-  Image,
-  Animated,
-  Text,
-  View,
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  Easing,
-  SafeAreaViewBase,
-  SafeAreaView
-} from 'react-native';
-const {width, height} = Dimensions.get('screen');
+import {StatusBar, Image, Animated, Text, View, StyleSheet, NativeScrollEvent} from 'react-native';
+
 import faker from 'faker';
 
 faker.seed(10);
@@ -34,22 +21,49 @@ const DATA = [...Array(30).keys()].map((_, i) => {
 const BG_IMG = 'https://blog.kakaocdn.net/dn/mtTE6/btqBVLNrB44/kmiN47aL0uLwctJ1KMihFk/img.jpg';
 const SPACING = 20;
 const AVATAR_SIZE = 70;
+const ITEM_SIZE = AVATAR_SIZE + SPACING * 3;
 
 export default () => {
+  const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <StatusBar hidden />
       <Image source={{uri: BG_IMG}} style={[StyleSheet.absoluteFillObject]} blurRadius={80} />
-      <FlatList
+      <Animated.FlatList
         data={DATA}
+        onScroll={Animated.event<NativeScrollEvent>([{nativeEvent: {contentOffset: {y: scrollY}}}], {useNativeDriver: true})}
         keyExtractor={(item) => item.key}
         contentContainerStyle={{
           padding: SPACING,
           paddingTop: StatusBar.currentHeight || 42
         }}
         renderItem={({item, index}) => {
+          const inputRange = [
+            -1,
+            0, // now
+            ITEM_SIZE * index, // TOP edge
+            ITEM_SIZE * (index + 2) // animation should finish after scrolling two items
+          ];
+
+          const opacityInputRange = [
+            -1,
+            0, // now
+            ITEM_SIZE * index, // TOP edge
+            ITEM_SIZE * (index + 0.5) // animation should finish after scrolling two items, 0.5 is faster than 1
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0]
+          });
+
+          const opacity = scrollY.interpolate({
+            inputRange: opacityInputRange,
+            outputRange: [1, 1, 1, 0]
+          });
+
           return (
-            <View
+            <Animated.View
               style={{
                 flexDirection: 'row',
                 padding: SPACING,
@@ -62,7 +76,9 @@ export default () => {
                   height: 10
                 },
                 shadowOpacity: 0.3,
-                shadowRadius: 20
+                shadowRadius: 20,
+                opacity,
+                transform: [{scale}]
               }}>
               <Image
                 source={{uri: item.image}}
@@ -73,7 +89,7 @@ export default () => {
                 <Text style={{fontSize: 18, opacity: 0.7}}>{item.jobTitle}</Text>
                 <Text style={{fontSize: 12, opacity: 0.8, color: '#0099CC'}}>{item.email}</Text>
               </View>
-            </View>
+            </Animated.View>
           );
         }}
       />
