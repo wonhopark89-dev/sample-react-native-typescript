@@ -12,6 +12,7 @@ import {default as PanGestureScreen} from '~/PanGesture';
 import {default as TransitionsScreen} from '~/Transitions';
 import {default as AnimationsScreen} from '~/Animations';
 import AnimatedScrollScreen from '~/AnimatedScroll/AnimatedScrollScreen';
+import ByCatalinMironStackNavigator from '~/ByCatalinMiron/ByCatalinMironStackNavigator';
 
 export type RootStackParamList = {
   RootScreen: undefined;
@@ -23,6 +24,9 @@ export type RootStackParamList = {
   PanGestureScreen: undefined;
   TransitionsScreen: undefined;
   AnimationsScreen: undefined;
+
+  // Tutorial by catalin miron
+  ByCatalinMironStack: undefined;
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
@@ -37,6 +41,7 @@ const RootNavigator = () => {
       <RootStack.Screen name={'ChanelScrollScreen'} component={ChanelScreen} />
       <RootStack.Screen name={'PhilzCoffeeScreen'} component={PhilzCoffeeScreen} />
       <RootStack.Screen name={'AnimatedScrollScreen'} component={AnimatedScrollScreen} />
+      <RootStack.Screen name={'ByCatalinMironStack'} component={ByCatalinMironStackNavigator} />
     </RootStack.Navigator>
   );
 };
