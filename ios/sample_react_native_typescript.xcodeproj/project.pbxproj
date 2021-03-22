@@ -25,6 +25,7 @@
 		98DFBBF1A0DE42D69E058603 /* GothamRounded-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 35A04D555D834E6B99D21DA5 /* GothamRounded-Book.otf */; };
 		E68D5919727A478E9F3BA72B /* GothamRounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D4209BEAAD2473CA46698D7 /* GothamRounded-Light.otf */; };
 		62FBF1CDF71F4790AD293CD0 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A8F196D83ED94EF2B2A5C6DE /* GothamRounded-Medium.otf */; };
+		14C0A9AFA5A94B6C983C9146 /* Jomhuria-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 978938BBAAAA4A5882D1CB47 /* Jomhuria-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		35A04D555D834E6B99D21DA5 /* GothamRounded-Book.otf */ = {isa = PBXFileReference; name = "GothamRounded-Book.otf"; path = "../assets/fonts/GothamRounded-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0D4209BEAAD2473CA46698D7 /* GothamRounded-Light.otf */ = {isa = PBXFileReference; name = "GothamRounded-Light.otf"; path = "../assets/fonts/GothamRounded-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A8F196D83ED94EF2B2A5C6DE /* GothamRounded-Medium.otf */ = {isa = PBXFileReference; name = "GothamRounded-Medium.otf"; path = "../assets/fonts/GothamRounded-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		978938BBAAAA4A5882D1CB47 /* Jomhuria-Regular.ttf */ = {isa = PBXFileReference; name = "Jomhuria-Regular.ttf"; path = "../assets/fonts/Jomhuria-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				35A04D555D834E6B99D21DA5 /* GothamRounded-Book.otf */,
 				0D4209BEAAD2473CA46698D7 /* GothamRounded-Light.otf */,
 				A8F196D83ED94EF2B2A5C6DE /* GothamRounded-Medium.otf */,
+				978938BBAAAA4A5882D1CB47 /* Jomhuria-Regular.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -371,6 +374,7 @@
 				98DFBBF1A0DE42D69E058603 /* GothamRounded-Book.otf in Resources */,
 				E68D5919727A478E9F3BA72B /* GothamRounded-Light.otf in Resources */,
 				62FBF1CDF71F4790AD293CD0 /* GothamRounded-Medium.otf in Resources */,
+				14C0A9AFA5A94B6C983C9146 /* Jomhuria-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
