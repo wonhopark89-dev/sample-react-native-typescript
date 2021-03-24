@@ -24,11 +24,11 @@ target 'sample_react_native_typescript' do
   # end
 end
 
-target 'sample_react_native_typescript-tvOS' do
-  # Pods for sample_react_native_typescript-tvOS
-
-  target 'sample_react_native_typescript-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
+#target 'sample_react_native_typescript-tvOS' do
+#  # Pods for sample_react_native_typescript-tvOS
+#
+#  target 'sample_react_native_typescript-tvOSTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#end

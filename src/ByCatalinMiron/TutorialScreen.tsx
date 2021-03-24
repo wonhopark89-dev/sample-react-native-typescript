@@ -9,13 +9,17 @@ interface Props {
 
 interface ButtonProps {
   title: string;
-  destination: keyof ByCatalinMironStackParamList;
+  destination: string[keyof ByCatalinMironStackParamList];
 }
 
 const TUTORIAL_LIST: ButtonProps[] = [
   {
     title: 'Accordion\nMenu',
     destination: 'AccordionMenu'
+  },
+  {
+    title: 'Sticky\nFooter',
+    destination: 'StickyFooter'
   }
 ];
 

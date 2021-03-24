@@ -11,7 +11,7 @@ const transition = (
   </Transition.Together>
 );
 
-export default function App() {
+const AccordionMenu = () => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   // const ref = useRef();
   const ref = useRef<TransitioningView>(null);
@@ -46,7 +46,9 @@ export default function App() {
       })}
     </Transitioning.View>
   );
-}
+};
+
+export default AccordionMenu;
 
 const styles = StyleSheet.create({
   container: {
